@@ -3101,6 +3101,8 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id banner_battery_warning
+id banner_notification_warning
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -3112,7 +3114,8 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
-id btn_grant_permission
+id btn_fix_battery
+id btn_fix_notification
 id btn_save_limit
 id btn_settings
 id buttonPanel
@@ -3195,6 +3198,7 @@ id end
 id endToStart
 id enterAlways
 id enterAlwaysCollapsed
+id et_large_threshold
 id et_limit
 id exitUntilCollapsed
 id expand_activities_button
@@ -3249,7 +3253,6 @@ id jumpToStart
 id labeled
 id layout
 id layout_home
-id layout_permission
 id left
 id leftToRight
 id legacy

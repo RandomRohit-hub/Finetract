@@ -21,6 +21,28 @@
         android:hint="@string/enter_limit"
         android:layout_marginTop="16dp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Large Payment Threshold"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Transactions above this amount are excluded from daily total."
+        android:textSize="12sp"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/et_large_threshold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:hint="e.g. 10000 (0 to disable)" />
+
     <Button
         android:id="@+id/btn_save_limit"
         android:layout_width="wrap_content"

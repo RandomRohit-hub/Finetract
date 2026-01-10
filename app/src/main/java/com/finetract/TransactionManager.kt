@@ -54,6 +54,15 @@ object TransactionManager {
     private val debounceMap = mutableMapOf<String, Long>()
     private const val DEBOUNCE_WINDOW_MS = 10_000L // 10 Seconds
     private const val KEY_ALERT_TRIGGERED_DATE = "alert_triggered_date"
+    private const val KEY_LARGE_PAYMENT_THRESHOLD = "large_payment_threshold"
+
+    fun getLargePaymentThreshold(context: Context): Float {
+        return getPrefs(context).getFloat(KEY_LARGE_PAYMENT_THRESHOLD, 0f) // 0f means disabled
+    }
+
+    fun setLargePaymentThreshold(context: Context, threshold: Float) {
+        getPrefs(context).edit().putFloat(KEY_LARGE_PAYMENT_THRESHOLD, threshold).apply()
+    }
 
     fun addTransaction(context: Context, amount: Float, uniqueId: String, timestamp: Long): Boolean {
         checkAndReset(context)
@@ -73,14 +82,18 @@ object TransactionManager {
             val lastTime = debounceMap[debounceKey] ?: 0L
             
             if (kotlin.math.abs(timestamp - lastTime) < DEBOUNCE_WINDOW_MS) {
-                // Too close to previous identical amount
                 return false
             }
             debounceMap[debounceKey] = timestamp
         }
 
+        // 4. Large Payment Check
+        val largeThreshold = getLargePaymentThreshold(context)
+        val isLargePayment = largeThreshold > 0 && amount > largeThreshold
+
         val current = getTodaySpend(context)
-        val newTotal = current + amount
+        // If large payment, do NOT add to total, but still save the transaction as processed
+        val newTotal = if (isLargePayment) current else current + amount 
         
         // Add ID to set
         val newSet = HashSet(processed)
@@ -90,7 +103,10 @@ object TransactionManager {
             .putFloat(KEY_TODAY_SPEND, newTotal)
             .putStringSet(KEY_PROCESSED_TXNS, newSet)
             .apply()
-            
+
+        // If it was a large payment, we return true (processed), but the service's limit check will see unchanged total.
+        // We might want to let the service know it was skipped? 
+        // For now, returning true implies "handled successfully".
         return true
     }
 

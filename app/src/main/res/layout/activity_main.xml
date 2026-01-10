@@ -8,109 +8,160 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <!-- Permission Layout -->
-    <LinearLayout
-        android:id="@+id/layout_permission"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:visibility="gone">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/permission_required_title"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:gravity="center" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/permission_required_desc"
-            android:layout_marginTop="16dp"
-            android:gravity="center" />
-
-        <Button
-            android:id="@+id/btn_grant_permission"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/grant_permission"
-            android:layout_marginTop="24dp" />
-    </LinearLayout>
-
-    <!-- Home Layout -->
-    <LinearLayout
-        android:id="@+id/layout_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:visibility="visible">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/today_spend_label"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tv_today_spend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="₹0.0"
-            android:textSize="48sp"
-            android:textStyle="bold"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/tv_limit_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/status_ok"
-            android:textSize="20sp"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/green"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_daily_limit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Limit: ₹1000"
-            android:layout_marginTop="8dp" />
-
-        <Button
-            android:id="@+id/btn_settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/update_limit"
-            android:layout_marginTop="32dp" />
-            
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Debug Logs:"
-            android:textStyle="bold"
-            android:layout_marginTop="24dp"
-            android:layout_gravity="start"/>
-            
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="#EEEEEE"
-            android:layout_marginTop="8dp"
-            android:padding="8dp">
-            <TextView
-                android:id="@+id/tv_debug_log"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <!-- Notification Warning Banner -->
+            <LinearLayout
+                android:id="@+id/banner_notification_warning"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Waiting for notifications..."
-                android:textSize="12sp"
-                android:fontFamily="monospace"/>
-        </ScrollView>
+                android:orientation="vertical"
+                android:background="#FFEBEE"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone">
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notification Access Disabled"
+                    android:textColor="#D32F2F"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tracking PAUSED. Tap to fix."
+                    android:textColor="#D32F2F"
+                    android:layout_marginTop="4dp"/>
+
+                <Button
+                    android:id="@+id/btn_fix_notification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enable Access"
+                    android:backgroundTint="#D32F2F"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+
+            <!-- Battery Warning Banner -->
+            <LinearLayout
+                android:id="@+id/banner_battery_warning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFF3E0"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Battery Optimization Enabled"
+                    android:textColor="#EF6C00"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tracking may stop. Please disable."
+                    android:textColor="#EF6C00"
+                    android:layout_marginTop="4dp"/>
+
+                <Button
+                    android:id="@+id/btn_fix_battery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fix Now"
+                    android:backgroundTint="#EF6C00"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+
+            <!-- Home Layout -->
+            <LinearLayout
+                android:id="@+id/layout_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/today_spend_label"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_today_spend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹0.0"
+                    android:textSize="48sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/tv_limit_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/status_ok"
+                    android:textSize="20sp"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_daily_limit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Limit: ₹1000"
+                    android:layout_marginTop="8dp" />
+
+                <Button
+                    android:id="@+id/btn_settings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/update_limit"
+                    android:layout_marginTop="32dp" />
+                    
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Debug Logs:"
+                    android:textStyle="bold"
+                    android:layout_marginTop="24dp"
+                    android:layout_gravity="start"/>
+                    
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="#EEEEEE"
+                    android:layout_marginTop="8dp"
+                    android:padding="8dp">
+                    <TextView
+                        android:id="@+id/tv_debug_log"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Waiting for notifications..."
+                        android:textSize="12sp"
+                        android:fontFamily="monospace"/>
+                </ScrollView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

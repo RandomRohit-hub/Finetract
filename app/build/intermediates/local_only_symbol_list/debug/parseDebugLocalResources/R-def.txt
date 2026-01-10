@@ -8,12 +8,15 @@ color red
 color teal_200
 color teal_700
 color white
-id btn_grant_permission
+id banner_battery_warning
+id banner_notification_warning
+id btn_fix_battery
+id btn_fix_notification
 id btn_save_limit
 id btn_settings
+id et_large_threshold
 id et_limit
 id layout_home
-id layout_permission
 id tv_daily_limit
 id tv_debug_log
 id tv_limit_status
