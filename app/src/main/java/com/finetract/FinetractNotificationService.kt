@@ -99,41 +99,47 @@ class FinetractNotificationService : NotificationListenerService() {
     }
 
     private fun checkLimitAndNotify() {
-        if (TransactionManager.isLimitExceeded(this)) {
-            sendLimitAlert()
+        val spend = TransactionManager.getTodaySpend(this)
+        val limit = TransactionManager.getDailyLimit(this)
+        
+        if (spend > limit) {
+             // Alternate Alert Logic: 1st, 3rd, 5th... time we cross/add to the limit
+             val count = TransactionManager.incrementOverLimitCount(this)
+             
+             // If count is Odd (1, 3, 5...), Send Alert
+             // If count is Even (2, 4, 6...), Skip
+             if (count % 2 != 0) {
+                 sendLimitAlert(spend, limit)
+                 DebugLogManager.log("Limit exceeded! Alert #$count sent.")
+             } else {
+                 DebugLogManager.log("Limit exceeded (Alert #$count skipped - alternate).")
+             }
         }
     }
 
-    private fun sendLimitAlert() {
-        // Only alert if we haven't alerted today? 
-        // User req: "Alert must trigger only once per day".
-        // Use logic: Check if we already alerted today.
-        // For simplicity, I'll rely on the user noticing the sticky notification or just standard approach.
-        // To strictly follow "once per day", I need another pref key.
-        val prefs = getSharedPreferences("finetract_internal", Context.MODE_PRIVATE)
-        val lastAlert = prefs.getString("last_alert_date", "")
-        val today = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault()).format(java.util.Date())
-        
-        if (lastAlert == today) return // Already alerted
-
-        val channelId = "limit_alert"
+    private fun sendLimitAlert(spend: Float, limit: Float) {
+        val channelId = "budget_alerts_v2"
         val nm = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(channelId, "Budget Alerts", NotificationManager.IMPORTANCE_HIGH)
+            val channel = NotificationChannel(channelId, "Daily Budget Alerts", NotificationManager.IMPORTANCE_HIGH)
+            channel.description = "Immediate alerts when daily spending limit is crossed."
+            channel.enableVibration(true)
             nm.createNotificationChannel(channel)
         }
 
         val notification = NotificationCompat.Builder(this, channelId)
-            .setContentTitle("Spending Limit Exceeded")
-            .setContentText("You have crossed your daily spending limit of ₹${TransactionManager.getDailyLimit(this)}")
+            .setContentTitle("Daily Limit Crossed")
+            .setContentText("You spent ₹$spend today, which exceeds your daily limit of ₹$limit.")
+            .setStyle(NotificationCompat.BigTextStyle()
+                .bigText("You spent ₹$spend today, which exceeds your daily limit of ₹$limit."))
             .setSmallIcon(android.R.drawable.stat_notify_error)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
+            .setDefaults(NotificationCompat.DEFAULT_ALL)
             .build()
 
-        nm.notify(999, notification)
-
-        prefs.edit().putString("last_alert_date", today).apply()
+        nm.notify(1001, notification)
+        DebugLogManager.log("ALERT SENT: Over limit!")
     }
 }

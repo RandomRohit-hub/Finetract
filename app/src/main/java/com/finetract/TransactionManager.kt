@@ -32,6 +32,7 @@ object TransactionManager {
                 .putString(KEY_LAST_RESET_DATE, today)
                 .putFloat(KEY_TODAY_SPEND, 0f)
                 .putStringSet(KEY_PROCESSED_TXNS, emptySet()) // New day, new transactions
+                .putInt(KEY_OVER_LIMIT_COUNT, 0) // Reset alert counter
                 .apply()
         }
     }
@@ -52,6 +53,7 @@ object TransactionManager {
     // In-memory cache for debounce (cleared on app kill, which is fine for "spam" prevention)
     private val debounceMap = mutableMapOf<String, Long>()
     private const val DEBOUNCE_WINDOW_MS = 10_000L // 10 Seconds
+    private const val KEY_ALERT_TRIGGERED_DATE = "alert_triggered_date"
 
     fun addTransaction(context: Context, amount: Float, uniqueId: String, timestamp: Long): Boolean {
         checkAndReset(context)
@@ -65,18 +67,10 @@ object TransactionManager {
         if (processed.contains(uniqueId)) return false
 
         // 3. Time-Window Debounce (Heuristic)
-        // Key for debounce is stricter: amount + timestamp(ish) OR just dedupe purely by amount/time flow
-        // The User's "Spam" problem: Same Amount, Same Package, New Timestamp (by seconds).
-        // Solution: If we see SAME AMOUNT from SAME PACKAGE within 2 mins -> Ignore.
-        // We need to parse package from uniqueId or pass it safely.
-        // Simplest: The uniqueId passed in IS "pkg|amount|time".
-        // Let's rely on a separate key construction here or simple tokenzing.
         val parts = uniqueId.split("|")
         if (parts.size >= 2) {
             val debounceKey = "${parts[0]}|${parts[1]}" // Pkg + Amount
             val lastTime = debounceMap[debounceKey] ?: 0L
-            val now = System.currentTimeMillis() // Use NOW, not notif time, to prevent processing delays from interfering? 
-            // Better to use the Notification Timestamp passed in validation.
             
             if (kotlin.math.abs(timestamp - lastTime) < DEBOUNCE_WINDOW_MS) {
                 // Too close to previous identical amount
@@ -88,6 +82,7 @@ object TransactionManager {
         val current = getTodaySpend(context)
         val newTotal = current + amount
         
+        // Add ID to set
         val newSet = HashSet(processed)
         newSet.add(uniqueId)
 
@@ -98,6 +93,33 @@ object TransactionManager {
             
         return true
     }
+
+    fun hasAlertedToday(context: Context): Boolean {
+        val prefs = getPrefs(context)
+        val lastAlertDate = prefs.getString(KEY_ALERT_TRIGGERED_DATE, "")
+        return lastAlertDate == getTodayDate()
+    }
+
+    fun setAlertedToday(context: Context) {
+        getPrefs(context).edit().putString(KEY_ALERT_TRIGGERED_DATE, getTodayDate()).apply()
+    }
+    
+    // New logic for Alternate Alerts
+    private const val KEY_OVER_LIMIT_COUNT = "over_limit_count"
+
+    fun incrementOverLimitCount(context: Context): Int {
+        val prefs = getPrefs(context)
+        val current = prefs.getInt(KEY_OVER_LIMIT_COUNT, 0)
+        val newCount = current + 1
+        prefs.edit().putInt(KEY_OVER_LIMIT_COUNT, newCount).apply()
+        return newCount
+    }
+
+    // reset logic handles itself because we check date explicitly
+    // But we need to ensure the count is also reset on new day
+    // Updated checkAndReset:
+
+
 
     fun isLimitExceeded(context: Context): Boolean {
         return getTodaySpend(context) > getDailyLimit(context)
