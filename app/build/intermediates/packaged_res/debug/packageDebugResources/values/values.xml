@@ -30,13 +30,15 @@
     <string name="label_daily_alert">Daily Alert</string>
     <string name="label_large_threshold">Exclude payments above</string>
     <string name="label_notif_permission">Notification Access</string>
+    <string name="label_remaining">Remaining</string>
+    <string name="label_spent_of">of</string>
     <string name="nav_home">Home</string>
     <string name="nav_settings">Settings</string>
     <string name="permission_required_desc">Finetract needs access to notifications to track your UPI expenses automatically.</string>
     <string name="permission_required_title">Notification Permission Required</string>
     <string name="positive_reinforcement">Great job! 👏</string>
     <string name="save">Save</string>
-    <string name="secure_label">Secure</string>
+    <string name="secure_label">Secure Environment</string>
     <string name="status_alert">Limit Crossed!</string>
     <string name="status_disabled">Disabled</string>
     <string name="status_enabled">Enabled</string>

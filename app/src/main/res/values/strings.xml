@@ -5,7 +5,9 @@
     <string name="nav_home">Home</string>
     <string name="nav_settings">Settings</string>
     <string name="title_daily_spend">Daily Spending</string>
-    <string name="secure_label">Secure</string>
+    <string name="secure_label">Secure Environment</string>
+    <string name="label_remaining">Remaining</string>
+    <string name="label_spent_of">of</string>
     <string name="positive_reinforcement">Great job! 👏</string>
     
     <!-- Settings Screen -->

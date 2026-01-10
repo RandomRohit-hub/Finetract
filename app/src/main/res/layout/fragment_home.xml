@@ -7,109 +7,173 @@
     android:background="@color/background_page"
     android:padding="24dp">
 
-    <!-- Trust/Secure Indicator -->
+    <!-- Trust/Secure Badge -->
     <LinearLayout
         android:id="@+id/container_secure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#E1F5FE"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="6dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+        <!-- Rounded Shape via simple background color for now (or could use drawable) -->
+        <!-- Using light blue tint background for trust feel -->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="🔒"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:text="@string/secure_label"
-            android:textColor="@color/text_secondary"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textColor="@color/primary_dark"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:letterSpacing="0.05"/>
     </LinearLayout>
 
-    <!-- Main Spending Card -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_dashboard"
-        android:layout_width="match_parent"
+    <TextView
+         android:id="@+id/tv_label_spend"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="32dp"
+         android:text="@string/title_daily_spend"
+         android:textColor="@color/text_secondary"
+         android:textSize="18sp"
+         android:textStyle="bold"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintTop_toBottomOf="@id/container_secure" />
+
+    <!-- Main Circular Progress Container -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_progress"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="4dp"
-        app:cardBackgroundColor="@color/surface_card"
-        app:layout_constraintTop_toBottomOf="@id/container_secure">
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_spend">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <!-- Background Circle (Gray track) -->
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress_background"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="32dp">
+            app:trackThickness="16dp"
+            app:indicatorSize="240dp"
+            app:trackColor="#E0E0E0"
+            app:indicatorColor="#E0E0E0"
+            android:progress="100"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_label_spend"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_daily_spend"
-                android:textColor="@color/text_secondary"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <!-- Actual Progress -->
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress_limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:trackThickness="16dp"
+            app:indicatorSize="240dp"
+            app:trackColor="@android:color/transparent"
+            app:indicatorColor="@color/success_green"
+            app:trackCornerRadius="8dp"
+            android:progress="65"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- Today's Spend Amount -->
+        <!-- Centered Text -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@id/progress_background"
+            app:layout_constraintEnd_toEndOf="@id/progress_background"
+            app:layout_constraintStart_toStartOf="@id/progress_background"
+            app:layout_constraintTop_toTopOf="@id/progress_background">
+
             <TextView
                 android:id="@+id/tv_spend_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="₹0"
+                android:text="₹200"
                 android:textColor="@color/text_primary"
-                android:textSize="48sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_spend" />
+                android:textSize="42sp"
+                android:textStyle="bold" />
 
-            <!-- Divider / Limit Info -->
             <TextView
                 android:id="@+id/tv_limit_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="/ ₹500"
+                android:layout_marginTop="4dp"
+                android:text="of ₹500"
                 android:textColor="@color/text_secondary"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/tv_spend_amount"
-                app:layout_constraintStart_toEndOf="@id/tv_spend_amount" />
-            
-            <!-- Progress Bar -->
-            <com.google.android.material.progressindicator.LinearProgressIndicator
-                android:id="@+id/progress_limit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                app:trackCornerRadius="8dp"
-                app:trackThickness="12dp"
-                app:indicatorColor="@color/success_green"
-                app:trackColor="#E0E0E0"
-                app:layout_constraintTop_toBottomOf="@id/tv_spend_amount" />
+                android:textSize="16sp" />
+                
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- Positive Reinforcement / Status -->
+    <!-- Remaining Status -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_remaining"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="24dp"
+        app:cardBackgroundColor="@color/surface_card"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="2dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/container_progress">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_remaining"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:textAllCaps="true"/>
+                <TextView
+                    android:id="@+id/tv_remaining_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹300"
+                    android:textColor="@color/primary"
+                    android:textSize="24sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            
             <TextView
                 android:id="@+id/tv_status_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="@string/positive_reinforcement"
-                android:textColor="@color/primary"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/progress_limit" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textColor="@color/success_green"
+                android:textStyle="bold"/>
+        </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
