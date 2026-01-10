@@ -94,7 +94,92 @@ object TransactionManager {
         getPrefs(context).edit().putFloat(KEY_LARGE_PAYMENT_THRESHOLD, threshold).apply()
     }
 
-    fun addTransaction(context: Context, amount: Float, uniqueId: String, timestamp: Long): Boolean {
+    // --- Categories ---
+    object Category {
+        const val FOOD = "Food"
+        const val TRAVEL = "Travel"
+        const val SHOPPING = "Shopping"
+        const val ENTERTAINMENT = "Entertainment"
+        const val TECH = "Tech"
+        const val EDUCATION = "Education"
+        const val DAIRY = "Dairy"
+        const val STATIONERY = "Stationery"
+        const val LOCAL = "Local / Basic Shops"
+        const val OTHER = "Other"
+    }
+
+    fun classifyMerchant(merchantName: String): String {
+        val lower = merchantName.lowercase(Locale.getDefault())
+        
+        return when {
+            // Food
+            lower.containsAny("zomato", "swiggy", "canteen", "restaurant", "cafe", "food", "mess", "pizza", "burger", "coffee") -> Category.FOOD
+            
+            // Travel
+            lower.containsAny("ola", "uber", "rapido", "bus", "metro", "irctc", "railway", "flight", "auto", "cab", "ride") -> Category.TRAVEL
+            
+            // Education
+            lower.containsAny("college", "school", "university", "fees", "tuition", "exam", "hostel", "book", "library") -> Category.EDUCATION
+            
+            // Stationery
+            lower.containsAny("stationery", "xerox", "photocopy", "print", "notebook", "pen", "register", "paper") -> Category.STATIONERY
+            
+            // Dairy
+            lower.containsAny("dairy", "milk", "paneer", "curd", "dahi", "butter", "amul", "mother dairy") -> Category.DAIRY
+            
+            // Shopping
+            lower.containsAny("amazon", "flipkart", "myntra", "meesho", "store", "mart", "retail", "fashion") -> Category.SHOPPING
+            
+            // Entertainment
+            lower.containsAny("pvr", "inox", "bookmyshow", "cinema", "movie", "netflix", "gaming", "play") -> Category.ENTERTAINMENT
+            
+            // Tech
+            lower.containsAny("google", "apple", "microsoft", "github", "aws", "software", "tech", "digital") -> Category.TECH
+            
+            // Local
+            lower.containsAny("general store", "kirana", "shop", "tea", "chai", "tapri", "stall", "backs", "snacks") -> Category.LOCAL
+            
+            else -> Category.OTHER
+        }
+    }
+    
+    // Helper extension
+    private fun String.containsAny(vararg keywords: String): Boolean {
+        return keywords.any { this.contains(it) }
+    }
+
+    private const val KEY_TRANSACTION_LOG = "transaction_log" // "timestamp|merchant|amount|category;..."
+
+    fun getTransactions(context: Context): List<TransactionRecord> {
+        val prefs = getPrefs(context)
+        val raw = prefs.getString(KEY_TRANSACTION_LOG, "") ?: ""
+        if (raw.isEmpty()) return emptyList()
+        
+        return raw.split(";").mapNotNull { 
+            val parts = it.split("|")
+            if (parts.size >= 3) {
+                // Handle backward compatibility for old format (3 parts) vs new (4 parts)
+                val cat = if (parts.size >= 4) parts[3] else "Other"
+                TransactionRecord(
+                    parts[0].toLongOrNull() ?: 0L,
+                    parts[1],
+                    parts[2].toFloatOrNull() ?: 0f,
+                    cat
+                )
+            } else null
+        }
+    }
+
+    data class TransactionRecord(val timestamp: Long, val merchant: String, val amount: Float, val category: String)
+
+    fun addTransaction(
+        context: Context, 
+        amount: Float, 
+        uniqueId: String, 
+        timestamp: Long, 
+        merchant: String,
+        rawContent: String
+    ): Boolean {
         checkAndReset(context)
         
         // 1. Date Check
@@ -128,16 +213,43 @@ object TransactionManager {
         // Add ID to set
         val newSet = HashSet(processed)
         newSet.add(uniqueId)
+        
+        // 5. Categorize (Use Raw Content + Merchant Name for max hits)
+        val combinedText = "$merchant $rawContent"
+        val category = classifyMerchant(combinedText)
+        
+        // 6. Smart Merchant Name (Override generic title if specific brand found)
+        val smartMerchant = extractMerchantName(combinedText) ?: merchant
+
+        // Append to Log
+        val log = prefs.getString(KEY_TRANSACTION_LOG, "") ?: ""
+        val newEntry = "$timestamp|$smartMerchant|$amount|$category"
+        val newLog = if (log.isEmpty()) newEntry else "$log;$newEntry"
 
         prefs.edit()
             .putFloat(KEY_TODAY_SPEND, newTotal)
             .putStringSet(KEY_PROCESSED_TXNS, newSet)
+            .putString(KEY_TRANSACTION_LOG, newLog)
             .apply()
 
-        // If it was a large payment, we return true (processed), but the service's limit check will see unchanged total.
-        // We might want to let the service know it was skipped? 
-        // For now, returning true implies "handled successfully".
         return true
+    }
+
+    private fun extractMerchantName(text: String): String? {
+        val lower = text.lowercase(Locale.getDefault())
+        
+        // List of known brands to extract (Capitalized for display)
+        val brands = listOf(
+            "Zomato", "Swiggy", "Uber", "Ola", "Rapido", "Amazon", "Flipkart", 
+            "Myntra", "Meesho", "Netflix", "Spotify", "Apple", "Google", 
+            "Starbucks", "McDonald's", "Dominos", "Pizza Hut", "KFC", "Subway",
+            "Canteen", "Irctc", "Metro", "Dmart", "Reliance", "Jio", "Airtel", "Vi",
+            "Steam", "PlayStation", "Xbox", "Dunzo", "Blinkit", "Zepto", "BigBasket",
+            "Decathlon", "Nykaa", "BookMyShow", "PVR", "Inox"
+        )
+        
+        // Return the first match found in text
+        return brands.find { lower.contains(it.lowercase(Locale.getDefault())) }
     }
 
     fun hasAlertedToday(context: Context): Boolean {

@@ -63,5 +63,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
              statusMsg?.text = getString(R.string.positive_reinforcement)
              statusMsg?.setTextColor(ContextCompat.getColor(context, R.color.success_green))
         }
+
+        // Add Click Listener to open Analytics
+        view?.findViewById<View>(R.id.container_progress)?.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, InsightsFragment())
+                .addToBackStack(null)
+                .commit()
+        }
     }
 }

@@ -37,6 +37,13 @@ class InsightsFragment : Fragment(R.layout.fragment_insights) {
             calendar.add(Calendar.MONTH, 1)
             updateUI()
         }
+        
+        view.findViewById<View>(R.id.btn_open_passbook).setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, PassbookFragment())
+                .addToBackStack(null)
+                .commit()
+        }
 
         updateUI()
     }

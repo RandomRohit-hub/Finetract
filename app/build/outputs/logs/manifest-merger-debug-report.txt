@@ -1,9 +1,20 @@
 -- Merging decision tree log ---
+provider#androidx.core.content.FileProvider
+INJECTED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:28:9-36:20
+	android:grantUriPermissions
+		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:32:13-47
+	android:authorities
+		INJECTED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml
+		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:30:13-64
+	android:exported
+		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:29:13-62
 manifest
-ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:2:1-41:12
-INJECTED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:2:1-41:12
-INJECTED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:2:1-41:12
-INJECTED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:2:1-41:12
+ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:2:1-49:12
+INJECTED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:2:1-49:12
+INJECTED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:2:1-49:12
+INJECTED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:2:1-49:12
 MERGED from [com.google.android.material:material:1.9.0] /Users/apple/.gradle/caches/8.10.2/transforms/2452517046d9f64093f5050250c11b7b/transformed/material-1.9.0/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/apple/.gradle/caches/8.10.2/transforms/44a0620101e530c6be0849163c07a4b2/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/apple/.gradle/caches/8.10.2/transforms/2abff0ac2a012daca5d60e8f8670db94/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
@@ -72,8 +83,8 @@ ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:6:5-7
 	android:name
 		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:6:22-90
 application
-ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:9:5-39:19
-INJECTED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:9:5-39:19
+ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:9:5-47:19
+INJECTED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:9:5-47:19
 MERGED from [com.google.android.material:material:1.9.0] /Users/apple/.gradle/caches/8.10.2/transforms/2452517046d9f64093f5050250c11b7b/transformed/material-1.9.0/AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.9.0] /Users/apple/.gradle/caches/8.10.2/transforms/2452517046d9f64093f5050250c11b7b/transformed/material-1.9.0/AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/apple/.gradle/caches/8.10.2/transforms/44a0620101e530c6be0849163c07a4b2/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
@@ -127,21 +138,27 @@ ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:24:17
 	android:name
 		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:24:27-74
 service#com.finetract.FinetractNotificationService
-ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:30:9-37:19
+ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:38:9-45:19
 	android:label
-		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:31:18-50
+		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:39:18-50
 	android:exported
-		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:33:18-41
+		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:41:18-41
 	android:permission
-		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:32:18-92
+		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:40:18-92
 	android:name
-		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:30:18-62
+		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:38:18-62
 intent-filter#action:name:android.service.notification.NotificationListenerService
-ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:34:13-36:29
+ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:42:13-44:29
 action#android.service.notification.NotificationListenerService
-ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:35:17-99
+ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:43:17-99
 	android:name
-		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:35:25-96
+		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:43:25-96
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:33:13-35:54
+	android:resource
+		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:35:17-51
+	android:name
+		ADDED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml:34:17-67
 uses-sdk
 INJECTED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/apple/Desktop/finetrack/app/src/main/AndroidManifest.xml

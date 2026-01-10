@@ -79,8 +79,12 @@ class FinetractNotificationService : NotificationListenerService() {
                 // Robust Unique ID: Package + Amount + Timestamp (ms)
                 // Use postTime from SBN to ensure it's tied to the event time, not processing time
                 val uniqueId = "${packageName}|${amount}|${sbn.postTime}"
+                
+                // Use Title as Merchant Name (e.g. "Paid to Zomato")
+                val merchant = title.ifEmpty { "Unknown Merchant" }
+                val rawContent = "$title $text"
 
-                val added = TransactionManager.addTransaction(this, amount, uniqueId, sbn.postTime)
+                val added = TransactionManager.addTransaction(this, amount, uniqueId, sbn.postTime, merchant, rawContent)
                 if (added) {
                     val msg = "Success: ₹$amount"
                     Log.d(TAG, msg)
