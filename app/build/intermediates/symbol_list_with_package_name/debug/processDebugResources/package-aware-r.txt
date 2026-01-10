@@ -3017,6 +3017,10 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable shape_circle_green
+drawable shape_circle_highlight
+drawable shape_circle_red
+drawable shape_circle_yellow
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3122,6 +3126,8 @@ id bounceStart
 id btn_edit_limit
 id btn_fix_battery
 id btn_fix_notif
+id btn_next_month
+id btn_prev_month
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3150,6 +3156,7 @@ id compress
 id confirm_button
 id constraint
 id container
+id container_analytics
 id container_progress
 id container_secure
 id content
@@ -3328,6 +3335,7 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id nav_home
+id nav_insights
 id nav_settings
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
@@ -3383,6 +3391,7 @@ id right_icon
 id right_side
 id rounded
 id row_index_key
+id rv_calendar
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3506,10 +3515,19 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tv_current_limit
+id tv_day_number
+id tv_detail_date
+id tv_detail_limit
+id tv_detail_spend
+id tv_detail_status
+id tv_header_insights
 id tv_label_spend
 id tv_limit_info
+id tv_month_year
 id tv_remaining_amount
 id tv_spend_amount
+id tv_stat_avg
+id tv_stat_on_track
 id tv_status_battery
 id tv_status_message
 id tv_status_notif
@@ -3520,6 +3538,8 @@ id up
 id useLogo
 id vertical_only
 id view_offset_helper
+id view_status_dot
+id view_today_bg
 id view_transition
 id view_tree_lifecycle_owner
 id view_tree_on_back_pressed_dispatcher_owner
@@ -3666,8 +3686,11 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_day_detail
 layout fragment_home
+layout fragment_insights
 layout fragment_settings
+layout item_calendar_day
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3903,6 +3926,7 @@ string mtrl_switch_track_path
 string mtrl_timepicker_cancel
 string mtrl_timepicker_confirm
 string nav_home
+string nav_insights
 string nav_settings
 string password_toggle_content_description
 string path_password_eye
@@ -4207,6 +4231,7 @@ style Base_Widget_MaterialComponents_Snackbar
 style Base_Widget_MaterialComponents_TextInputEditText
 style Base_Widget_MaterialComponents_TextInputLayout
 style Base_Widget_MaterialComponents_TextView
+style CalendarDayHeader
 style CardView
 style CardView_Dark
 style CardView_Light

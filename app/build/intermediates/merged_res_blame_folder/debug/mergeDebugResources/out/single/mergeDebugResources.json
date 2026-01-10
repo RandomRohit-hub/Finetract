@@ -8,12 +8,12 @@
         "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/layout_fragment_home.xml.flat",
-        "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/layout/fragment_home.xml"
+        "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/drawable_shape_circle_green.xml.flat",
+        "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/drawable/shape_circle_green.xml"
     },
     {
-        "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/xml_backup_rules.xml.flat",
-        "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/xml/backup_rules.xml"
+        "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/drawable_shape_circle_red.xml.flat",
+        "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/drawable/shape_circle_red.xml"
     },
     {
         "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/layout_activity_main.xml.flat",
@@ -24,7 +24,35 @@
         "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/layout/fragment_settings.xml"
     },
     {
-        "merged": "com.finetract.app-debug-37:/layout_fragment_home.xml.flat",
-        "source": "com.finetract.app-main-39:/layout/fragment_home.xml"
+        "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/layout_dialog_day_detail.xml.flat",
+        "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/layout/dialog_day_detail.xml"
+    },
+    {
+        "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/layout_fragment_insights.xml.flat",
+        "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/layout/fragment_insights.xml"
+    },
+    {
+        "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/drawable_shape_circle_highlight.xml.flat",
+        "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/drawable/shape_circle_highlight.xml"
+    },
+    {
+        "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/layout_item_calendar_day.xml.flat",
+        "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/layout/item_calendar_day.xml"
+    },
+    {
+        "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/layout_fragment_home.xml.flat",
+        "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/xml_backup_rules.xml.flat",
+        "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/drawable_shape_circle_yellow.xml.flat",
+        "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/drawable/shape_circle_yellow.xml"
+    },
+    {
+        "merged": "com.finetract.app-debug-37:/layout_fragment_insights.xml.flat",
+        "source": "com.finetract.app-main-39:/layout/fragment_insights.xml"
     }
 ]

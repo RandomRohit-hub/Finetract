@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> loadFragment(HomeFragment())
+                R.id.nav_insights -> loadFragment(InsightsFragment())
                 R.id.nav_settings -> loadFragment(SettingsFragment())
                 else -> false
             }

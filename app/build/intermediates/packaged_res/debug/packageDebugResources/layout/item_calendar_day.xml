@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="?attr/selectableItemBackground"
+    android:padding="4dp">
+
+    <!-- Today Highlight Background (Circle) -->
+    <View
+        android:id="@+id/view_today_bg"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@drawable/shape_circle_highlight"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/tv_day_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/text_primary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="12"
+        app:layout_constraintStart_toStartOf="@id/view_today_bg"
+        app:layout_constraintEnd_toEndOf="@id/view_today_bg"
+        app:layout_constraintTop_toTopOf="@id/view_today_bg"
+        app:layout_constraintBottom_toBottomOf="@id/view_today_bg"/>
+
+    <!-- Status Dot -->
+    <View
+        android:id="@+id/view_status_dot"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/shape_circle_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

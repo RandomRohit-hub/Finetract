@@ -12,6 +12,7 @@ object TransactionManager {
     private const val KEY_TODAY_SPEND = "today_spend"
     private const val KEY_LAST_RESET_DATE = "last_reset_date"
     private const val KEY_PROCESSED_TXNS = "processed_txns"
+    private const val KEY_HISTORY = "history_records" // JSON-like list: "date|spend|limit;..."
 
     private fun getPrefs(context: Context): SharedPreferences {
         return context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
@@ -21,21 +22,50 @@ object TransactionManager {
         return SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
     }
 
+    data class DailyRecord(val date: String, val spend: Float, val limit: Float)
+
     // Checks date and resets if it's a new day
     fun checkAndReset(context: Context) {
         val prefs = getPrefs(context)
         val lastDate = prefs.getString(KEY_LAST_RESET_DATE, "")
         val today = getTodayDate()
 
-        if (lastDate != today) {
+        if (lastDate != "" && lastDate != today) {
+            // It's a new day, archive yesterday's data
+            val lastSpend = prefs.getFloat(KEY_TODAY_SPEND, 0f)
+            val lastLimit = prefs.getFloat(KEY_DAILY_LIMIT, 5000f) // approximate limit at time of reset
+            
+            // Append to history
+            val history = prefs.getString(KEY_HISTORY, "") ?: ""
+            val newRecord = "$lastDate|$lastSpend|$lastLimit"
+            val newHistory = if (history.isEmpty()) newRecord else "$history;$newRecord"
+
             prefs.edit()
                 .putString(KEY_LAST_RESET_DATE, today)
                 .putFloat(KEY_TODAY_SPEND, 0f)
                 .putStringSet(KEY_PROCESSED_TXNS, emptySet()) // New day, new transactions
                 .putInt(KEY_OVER_LIMIT_COUNT, 0) // Reset alert counter
+                .putString(KEY_HISTORY, newHistory)
                 .apply()
+        } else if (lastDate == "") {
+             // First run initialization
+             prefs.edit().putString(KEY_LAST_RESET_DATE, today).apply()
         }
     }
+    
+    fun getHistory(context: Context): List<DailyRecord> {
+        val prefs = getPrefs(context)
+        val raw = prefs.getString(KEY_HISTORY, "") ?: ""
+        if (raw.isEmpty()) return emptyList()
+        
+        return raw.split(";").mapNotNull { 
+            val parts = it.split("|")
+            if (parts.size == 3) {
+                DailyRecord(parts[0], parts[1].toFloatOrNull() ?: 0f, parts[2].toFloatOrNull() ?: 0f)
+            } else null
+        }
+    }
+
 
     fun getDailyLimit(context: Context): Float {
         return getPrefs(context).getFloat(KEY_DAILY_LIMIT, 5000f)
