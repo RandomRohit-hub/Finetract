@@ -20,12 +20,12 @@
         "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/layout/activity_main.xml"
     },
     {
-        "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/layout_fragment_settings.xml.flat",
-        "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/layout/fragment_settings.xml"
-    },
-    {
         "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/layout_fragment_passbook.xml.flat",
         "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/layout/fragment_passbook.xml"
+    },
+    {
+        "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/layout_fragment_settings.xml.flat",
+        "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/layout/fragment_settings.xml"
     },
     {
         "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/drawable_bg_pill_accent.xml.flat",
@@ -38,6 +38,10 @@
     {
         "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/layout_dialog_report_card.xml.flat",
         "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/layout/dialog_report_card.xml"
+    },
+    {
+        "merged": "com.finetract.app-debug-37:/layout_fragment_transactions.xml.flat",
+        "source": "com.finetract.app-main-39:/layout/fragment_transactions.xml"
     },
     {
         "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/layout_fragment_insights.xml.flat",
@@ -68,23 +72,15 @@
         "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/xml/backup_rules.xml"
     },
     {
-        "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/xml_file_paths.xml.flat",
-        "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/xml/file_paths.xml"
-    },
-    {
         "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/layout_fragment_transactions.xml.flat",
         "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/layout/fragment_transactions.xml"
     },
     {
+        "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/xml_file_paths.xml.flat",
+        "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/xml/file_paths.xml"
+    },
+    {
         "merged": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-debug-37:/drawable_shape_circle_yellow.xml.flat",
         "source": "/Users/apple/.gradle/daemon/8.10.2/com.finetract.app-main-39:/drawable/shape_circle_yellow.xml"
-    },
-    {
-        "merged": "com.finetract.app-debug-37:/layout_fragment_insights.xml.flat",
-        "source": "com.finetract.app-main-39:/layout/fragment_insights.xml"
-    },
-    {
-        "merged": "com.finetract.app-debug-37:/layout_fragment_home.xml.flat",
-        "source": "com.finetract.app-main-39:/layout/fragment_home.xml"
     }
 ]

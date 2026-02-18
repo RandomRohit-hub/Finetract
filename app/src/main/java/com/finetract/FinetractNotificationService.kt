@@ -44,37 +44,50 @@ class FinetractNotificationService : NotificationListenerService() {
         if (sbn == null) return
 
         val packageName = sbn.packageName
+        
+        // Enhanced logging: Log ALL notifications received
+        DebugLogManager.log("📨 Notif from: $packageName")
+        
         if (!LISTEN_PACKAGES.contains(packageName)) {
-            DebugLogManager.log("Ignored: Pkg $packageName not known")
+            DebugLogManager.log("❌ Ignored: Pkg not in whitelist")
             return
         }
 
         val extras = sbn.notification.extras
         val title = extras.getString("android.title") ?: ""
         val text = extras.getCharSequence("android.text")?.toString() ?: ""
+        
+        // Enhanced logging: Show raw content
+        DebugLogManager.log("📄 Title: '$title'")
+        DebugLogManager.log("📄 Text: '$text'")
+        
         val fullText = "$title $text".lowercase(java.util.Locale.getDefault())
 
         // 1. Check for FAILURE keywords first
         if (NEGATIVE_KEYWORDS.any { fullText.contains(it) }) {
-             DebugLogManager.log("Ignored ($packageName): 'Failed/Pending' keyword detected.")
+             DebugLogManager.log("❌ Failed/Pending keyword detected")
              return
         }
 
         // 2. Check for SUCCESS/TRANSACTION keywords
-        if (!POSITIVE_KEYWORDS.any { fullText.contains(it) }) {
-             // Maybe log locally but don't spam debug log if it's just a "Check Balance" notification
-             DebugLogManager.log("Ignored: No success keyword found in '$fullText'") 
+        val foundKeyword = POSITIVE_KEYWORDS.find { fullText.contains(it) }
+        if (foundKeyword == null) {
+             DebugLogManager.log("❌ No success keyword in: '$fullText'") 
              return
         }
-
-        DebugLogManager.log("Rx: $packageName") // Log received valid-ish notification
+        DebugLogManager.log("✅ Keyword '$foundKeyword' matched")
 
         // 3. Extract Amount
-        val matcher = AMOUNT_PATTERN.matcher("$title $text") // Use original case
+        val originalText = "$title $text"
+        DebugLogManager.log("🔍 Searching for amount in: '$originalText'")
+        
+        val matcher = AMOUNT_PATTERN.matcher(originalText)
         if (matcher.find()) {
             try {
                 val amountStr = matcher.group(1)?.replace(",", "") ?: return
                 val amount = amountStr.toFloat()
+                
+                DebugLogManager.log("💰 Found amount: ₹$amount")
                 
                 // Robust Unique ID: Package + Amount + Timestamp (ms)
                 // Use postTime from SBN to ensure it's tied to the event time, not processing time
@@ -86,19 +99,21 @@ class FinetractNotificationService : NotificationListenerService() {
 
                 val added = TransactionManager.addTransaction(this, amount, uniqueId, sbn.postTime, merchant, rawContent)
                 if (added) {
-                    val msg = "Success: ₹$amount"
+                    val msg = "✅ Success: ₹$amount"
                     Log.d(TAG, msg)
                     DebugLogManager.log(msg)
                     checkLimitAndNotify()
+                    // Check and send budget notifications
+                    BudgetNotificationHelper.checkAndNotifyBudgetStatus(this)
                 } else {
-                    DebugLogManager.log("Duplicate ignored: ₹$amount")
+                    DebugLogManager.log("⚠️ Duplicate ignored: ₹$amount")
                 }
             } catch (e: Exception) {
                 Log.e(TAG, "Error parsing amount", e)
-                DebugLogManager.log("Error parsing: ${e.message}")
+                DebugLogManager.log("❌ Error parsing: ${e.message}")
             }
         } else {
-            DebugLogManager.log("Ignored: No amount found.")
+            DebugLogManager.log("❌ No amount found in regex match")
         }
     }
 

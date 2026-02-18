@@ -49,6 +49,24 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                  }
              }
         }
+        
+        // Debug Log Observer
+        val tvDebugLogs = view.findViewById<TextView>(R.id.tv_debug_logs)
+        DebugLogManager.logs.observe(viewLifecycleOwner) { logs ->
+            tvDebugLogs.text = logs.ifEmpty { "Waiting for notifications..." }
+        }
+        
+        // Test Button - Verify logging system works
+        view.findViewById<Button>(R.id.btn_test_log).setOnClickListener {
+            DebugLogManager.log("🧪 Test button clicked - Logging works!")
+            DebugLogManager.log("Checking if service is connected...")
+            // The service should log "Service Linked & Ready!" when connected
+        }
+        
+        // Clear Logs Button
+        view.findViewById<Button>(R.id.btn_clear_logs).setOnClickListener {
+            DebugLogManager.clear()
+        }
     }
 
     override fun onResume() {

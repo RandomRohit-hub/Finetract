@@ -51,6 +51,7 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1] /Users/apple/
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.1] /Users/apple/.gradle/caches/8.10.2/transforms/c07d8b8e42b525bf444204ec0863bda6/transformed/jetified-lifecycle-viewmodel-savedstate-2.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core-ktx:1.10.1] /Users/apple/.gradle/caches/8.10.2/transforms/1ef74fe035547e25d86453461b266bb0/transformed/jetified-core-ktx-1.10.1/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/apple/.gradle/caches/8.10.2/transforms/ee4756c6f7838ff76b6a02c3c2c90cf0/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/apple/.gradle/caches/8.10.2/transforms/793533551aeaca19733ae0094cee57f0/transformed/jetified-MPAndroidChart-v3.1.0/AndroidManifest.xml:2:1-20:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/apple/.gradle/caches/8.10.2/transforms/fbf1e1970bd8d772637a555fd8259d6d/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/apple/.gradle/caches/8.10.2/transforms/2502b458973eb91f884cb51c3f58ca87/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/apple/.gradle/caches/8.10.2/transforms/b4b563658a4b15d7f17b27060631c434/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -235,6 +236,8 @@ MERGED from [androidx.core:core-ktx:1.10.1] /Users/apple/.gradle/caches/8.10.2/t
 MERGED from [androidx.core:core-ktx:1.10.1] /Users/apple/.gradle/caches/8.10.2/transforms/1ef74fe035547e25d86453461b266bb0/transformed/jetified-core-ktx-1.10.1/AndroidManifest.xml:5:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/apple/.gradle/caches/8.10.2/transforms/ee4756c6f7838ff76b6a02c3c2c90cf0/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/apple/.gradle/caches/8.10.2/transforms/ee4756c6f7838ff76b6a02c3c2c90cf0/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/apple/.gradle/caches/8.10.2/transforms/793533551aeaca19733ae0094cee57f0/transformed/jetified-MPAndroidChart-v3.1.0/AndroidManifest.xml:16:5-18:41
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/apple/.gradle/caches/8.10.2/transforms/793533551aeaca19733ae0094cee57f0/transformed/jetified-MPAndroidChart-v3.1.0/AndroidManifest.xml:16:5-18:41
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/apple/.gradle/caches/8.10.2/transforms/fbf1e1970bd8d772637a555fd8259d6d/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/apple/.gradle/caches/8.10.2/transforms/fbf1e1970bd8d772637a555fd8259d6d/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/apple/.gradle/caches/8.10.2/transforms/2502b458973eb91f884cb51c3f58ca87/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44

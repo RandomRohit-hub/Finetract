@@ -21,6 +21,7 @@ drawable shape_circle_red
 drawable shape_circle_yellow
 id bottom_navigation
 id btn_back
+id btn_clear_logs
 id btn_dismiss
 id btn_edit_limit
 id btn_export_csv
@@ -32,8 +33,14 @@ id btn_latest_report
 id btn_next_month
 id btn_open_passbook
 id btn_prev_month
+id btn_test_log
+id card_bar_chart
+id card_budget_summary
 id card_filter
 id card_ghost_alert
+id card_pie_chart
+id chart_bar
+id chart_pie
 id container_analytics
 id container_progress
 id container_stats
@@ -46,6 +53,7 @@ id nav_home
 id nav_settings
 id nav_transactions
 id progress_background
+id progress_budget
 id progress_limit
 id rv_calendar
 id rv_passbook
@@ -53,12 +61,15 @@ id rv_transactions
 id switch_daily_alert
 id tv_amount
 id tv_attendance
+id tv_budget_status
 id tv_category
 id tv_current_filter
 id tv_current_limit
+id tv_daily_budget
 id tv_daily_insight
 id tv_date
 id tv_day_number
+id tv_debug_logs
 id tv_detail_date
 id tv_detail_limit
 id tv_detail_spend
@@ -94,6 +105,8 @@ id tv_time
 id tv_tip
 id tv_title_passbook
 id tv_title_transactions
+id tv_total_spent
+id tv_transactions_header
 id tv_txn_header
 id view_status_dot
 id view_today_bg

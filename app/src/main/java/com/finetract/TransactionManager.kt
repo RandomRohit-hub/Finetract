@@ -66,6 +66,9 @@ object TransactionManager {
                 .putInt(KEY_BEST_STREAK, newBest)
                 .putBoolean(KEY_STREAK_BROKEN_TODAY, !wasStreakDay)
                 .apply()
+                
+            // Reset notification flags for new day
+            BudgetNotificationHelper.resetDailyFlags(context)
         } else if (lastDate == "") {
              // First run initialization
              prefs.edit().putString(KEY_LAST_RESET_DATE, today).apply()
