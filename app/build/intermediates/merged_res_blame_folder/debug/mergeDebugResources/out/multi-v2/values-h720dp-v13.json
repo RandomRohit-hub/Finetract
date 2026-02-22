@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.finetract.app-mergeDebugResources-35:/values-h720dp-v13/values-h720dp-v13.xml",
+            "outputFile": "com.finetract.app-mergeDebugResources-57:/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/apple/.gradle/caches/8.10.2/transforms/e1cea218e74a4044b396288e7d4fed6c/transformed/appcompat-1.6.1/res/values-h720dp-v13/values-h720dp-v13.xml",
+                    "source": "C:\\Users\\Rohit\\.gradle\\caches\\9.2.1\\transforms\\3d2cdcba82d7cdd03bf1e21b10c4c682\\workspace\\transformed\\appcompat-1.6.1\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

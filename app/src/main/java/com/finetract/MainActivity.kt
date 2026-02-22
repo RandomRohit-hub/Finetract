@@ -1,6 +1,7 @@
 package com.finetract
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -14,6 +15,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // First Launch Check
+        val preferenceManager = PreferenceManager(this)
+        if (!preferenceManager.isTermsAccepted()) {
+            startActivity(Intent(this, TermsPrivacyActivity::class.java))
+            finish()
+            return
+        }
+
         setContentView(R.layout.activity_main)
 
         // Initialize notification channels

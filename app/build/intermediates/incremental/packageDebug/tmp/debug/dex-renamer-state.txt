@@ -1,10 +1,13 @@
-#Mon Feb 16 21:04:49 IST 2026
-base.0=/Users/apple/Desktop/finetrack/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
-base.1=/Users/apple/Desktop/finetrack/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
-base.2=/Users/apple/Desktop/finetrack/app/build/intermediates/dex/debug/mergeProjectDexDebug/11/classes.dex
+#Sun Feb 22 12:07:31 IST 2026
+base.0=D\:\\Finetract\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=D\:\\Finetract\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=D\:\\Finetract\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex
+base.3=D\:\\Finetract\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=11/classes.dex
+path.3=classes2.dex
 renamed.0=classes.dex
 renamed.1=classes2.dex
 renamed.2=classes3.dex
+renamed.3=classes4.dex
