@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_page">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="24dp">
 
-        <!-- Budget Section -->
         <TextView
-            style="@style/TextAppearance.MaterialComponents.Subtitle2"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/header_budget"
-            android:textColor="@color/primary"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="32dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Settings"
+            android:textColor="@color/black"
+            android:textSize="28sp" />
+
+        <!-- A. Budget -->
+        <TextView
+            style="@style/SettingsSectionLabel"
+            android:text="Budget" />
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/surface_card"
-            android:layout_marginBottom="24dp">
-            
+            style="@style/SettingsCardStyle">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -35,300 +37,264 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/desc_budget" 
-                    android:textColor="@color/text_secondary"/>
+                    android:text="Daily Limit"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
                     
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="8dp">
-
-                    <TextView
-                        android:id="@+id/tv_current_limit"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_daily_limit"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="₹500.0"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/text_primary"/>
-                        
+                        android:background="@null"
+                        android:fontFamily="sans-serif-black"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/primary"
+                        android:textSize="24sp"
+                        tools:text="₹2,000" />
+
                     <Button
-                        android:id="@+id/btn_edit_limit"
+                        android:id="@+id/btn_save_limit"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="EDIT"/>
+                        android:text="Save"
+                        android:visibility="gone" />
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
-        
-        <!-- Notifications / Large Payment Section -->
+
+        <!-- B. Privacy -->
         <TextView
-            style="@style/TextAppearance.MaterialComponents.Subtitle2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Preferences"
-            android:textColor="@color/primary"
-            android:layout_marginBottom="8dp"/>
+            style="@style/SettingsSectionLabel"
+            android:text="Privacy" />
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/surface_card"
-            android:layout_marginBottom="24dp">
+            style="@style/SettingsCardStyle">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <!-- Alert Toggle (Mock, we don't have logic for toggle yet but UI requested) -->
-                <!-- Ideally this toggles the service alert logic. We can impl later. -->
-                <LinearLayout
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch_privacy_mode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/label_daily_alert"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/desc_daily_alert"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp"/>
-                    </LinearLayout>
-                    <com.google.android.material.materialswitch.MaterialSwitch
-                        android:id="@+id/switch_daily_alert"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="true"/>
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/divider"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="12dp"/>
-
-                <!-- Large Payment Threshold -->
-                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/header_large_payment"
-                        android:textColor="@color/text_primary"
-                        android:textStyle="bold"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                         android:orientation="horizontal"
-                         android:gravity="center_vertical">
-                        <TextView
-                             android:layout_width="0dp"
-                             android:layout_height="wrap_content"
-                             android:layout_weight="1"
-                             android:text="@string/label_large_threshold"
-                             android:textColor="@color/text_secondary"
-                             android:textSize="12sp"/>
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_large_threshold"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:hint="₹0"
-                            android:inputType="numberDecimal"
-                            android:textSize="14sp"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- System Section (Hardening) -->
-        <TextView
-            style="@style/TextAppearance.MaterialComponents.Subtitle2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/header_system"
-            android:textColor="@color/primary"
-            android:layout_marginBottom="8dp"/>
-            
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/surface_card">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <!-- Notification Permission -->
-                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="16dp">
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/label_notif_permission"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold"/>
-                        <TextView
-                            android:id="@+id/tv_status_notif"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Checking..."
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp"/>
-                    </LinearLayout>
-                    <Button
-                        android:id="@+id/btn_fix_notif"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/action_fix"
-                        android:textColor="@color/danger_red"
-                        android:visibility="gone"/>
-                </LinearLayout>
+                    android:text="Mask amounts"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
                 
-                <!-- Battery Opt -->
-                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/label_battery_opt"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold"/>
-                        <TextView
-                            android:id="@+id/tv_status_battery"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Checking..."
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp"/>
-                    </LinearLayout>
-                    <Button
-                        android:id="@+id/btn_fix_battery"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/action_fix"
-                        android:textColor="@color/danger_red"
-                        android:visibility="gone"/>
-                </LinearLayout>
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Debug Log Section -->
-        <TextView
-            style="@style/TextAppearance.MaterialComponents.Subtitle2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Debug Logs"
-            android:textColor="@color/primary"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="8dp"/>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/surface_card">
-            
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="8dp">
-                    
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Notification Activity"
-                        android:textColor="@color/text_primary"
-                        android:textStyle="bold"/>
-                    
-                    <Button
-                        android:id="@+id/btn_test_log"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="TEST"/>
-                        
-                    <Button
-                        android:id="@+id/btn_clear_logs"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CLEAR"/>
-                </LinearLayout>
-
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="#F5F5F5"
-                    android:padding="8dp">
-                    
-                    <TextView
-                        android:id="@+id/tv_debug_logs"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Waiting for notifications..."
-                        android:textColor="@color/text_secondary"
-                        android:textSize="11sp"
-                        android:fontFamily="monospace"
-                        android:lineSpacingExtra="2dp"/>
-                </ScrollView>
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="📨 All notifications • ✅ Success • ❌ Filtered out"
+                    android:layout_marginTop="4dp"
+                    android:text="When on, all currency values show as ••••"
                     android:textColor="@color/text_secondary"
-                    android:textSize="10sp"
-                    android:layout_marginTop="8dp"/>
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
+        <!-- C. Notifications -->
+        <TextView
+            style="@style/SettingsSectionLabel"
+            android:text="Notifications" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/SettingsCardStyle">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch_budget_warning"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Budget warning alerts"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <View style="@style/SettingsDivider" />
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch_recurring_detection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Recurring payment detection"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- D. Permissions -->
+        <TextView
+            style="@style/SettingsSectionLabel"
+            android:text="Permissions" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/SettingsCardStyle">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Notification Access -->
+                <LinearLayout
+                    android:id="@+id/row_notification_access"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Notification Access"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/tv_notification_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Checking..."
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btn_notification_action"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="Enable"
+                        android:textColor="@color/primary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <View style="@style/SettingsDivider" />
+
+                <!-- Battery Optimization -->
+                <LinearLayout
+                    android:id="@+id/row_battery_optimization"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Background Activity"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/tv_battery_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Checking..."
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btn_battery_action"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="Fix"
+                        android:textColor="@color/primary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- E. Data Management -->
+        <TextView
+            style="@style/SettingsSectionLabel"
+            android:text="Data Management" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/SettingsCardStyle">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <Button
+                    android:id="@+id/btn_reset_data"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:text="Reset all data"
+                    android:textColor="@color/danger_red" />
+
+                <View style="@style/SettingsDivider" />
+
+                <Button
+                    android:id="@+id/btn_export_data"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:gravity="start|center_vertical"
+                    android:text="Export data (Coming soon)"
+                    android:textColor="@color/text_secondary" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- E. About -->
+        <TextView
+            style="@style/SettingsSectionLabel"
+            android:text="About" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/SettingsCardStyle">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_app_version"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Finetract v1.0"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <View style="@style/SettingsDivider" />
+
+                <TextView
+                    android:id="@+id/tv_privacy_policy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Privacy Policy"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

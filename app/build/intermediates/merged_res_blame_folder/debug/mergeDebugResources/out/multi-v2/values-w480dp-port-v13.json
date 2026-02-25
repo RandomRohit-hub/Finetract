@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.finetract.app-mergeDebugResources-57:/values-w480dp-port-v13/values-w480dp-port-v13.xml",
+            "outputFile": "com.finetract.app-mergeDebugResources-63:/values-w480dp-port-v13/values-w480dp-port-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Rohit\\.gradle\\caches\\9.2.1\\transforms\\df4f154d346dc181fe3c1e5ee49c6342\\workspace\\transformed\\material-1.9.0\\res\\values-w480dp-port-v13\\values-w480dp-port-v13.xml",
+                    "source": "C:\\Users\\Rohit\\.gradle\\caches\\9.2.1\\transforms\\74f0fc5005b3d91311f1afd7755b56c3\\workspace\\transformed\\material-1.9.0\\res\\values-w480dp-port-v13\\values-w480dp-port-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

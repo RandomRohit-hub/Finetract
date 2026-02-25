@@ -264,11 +264,7 @@ object TransactionManager {
     data class TodayStats(val count: Int, val maxAmount: Float, val maxCategory: String)
 
     fun getTodayStats(context: Context): TodayStats {
-        val all = getTransactions(context)
-        val todayStr = getTodayDate()
-        val todayTxns = all.filter { 
-             SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date(it.timestamp)) == todayStr 
-        }
+        val todayTxns = getTodayTransactions(context)
         
         if (todayTxns.isEmpty()) return TodayStats(0, 0f, "")
         
@@ -278,6 +274,14 @@ object TransactionManager {
             maxTxn?.amount ?: 0f,
             maxTxn?.category ?: ""
         )
+    }
+
+    fun getTodayTransactions(context: Context): List<TransactionRecord> {
+        val all = getTransactions(context)
+        val todayStr = getTodayDate()
+        return all.filter { 
+             SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date(it.timestamp)) == todayStr 
+        }
     }
 
     data class TransactionRecord(val timestamp: Long, val merchant: String, val amount: Float, val category: String)
@@ -401,5 +405,9 @@ object TransactionManager {
         val date = Date(timestamp)
         val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         return sdf.format(date) == getTodayDate()
+    }
+
+    fun clearAll(context: Context) {
+        getPrefs(context).edit().clear().apply()
     }
 }

@@ -11,6 +11,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,8 +43,8 @@ class MainActivity : AppCompatActivity() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_home -> loadFragment(HomeFragment())
-                R.id.nav_transactions -> loadFragment(TransactionsFragment())
+                R.id.nav_today -> loadFragment(TodayFragment())
+                R.id.nav_history -> loadFragment(HistoryFragment())
                 R.id.nav_settings -> loadFragment(SettingsFragment())
                 else -> false
             }
@@ -49,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         // Load Default
         if (savedInstanceState == null) {
-            bottomNav.selectedItemId = R.id.nav_home
+            bottomNav.selectedItemId = R.id.nav_today
         }
     }
 

@@ -69,8 +69,8 @@ object BudgetNotificationHelper {
                 showBudgetExceededNotification(context, todaySpend, limit)
                 markExceededNotified(context, today)
             }
-            // Approaching limit (80% threshold)
-            percentUsed >= 80 && percentUsed < 100 && !hasNotified80(context, today) -> {
+            // Approaching limit (70% threshold)
+            percentUsed >= 70 && percentUsed < 100 && !hasNotified80(context, today) -> {
                 showBudgetReminderNotification(context, todaySpend, limit)
                 mark80Notified(context, today)
             }
@@ -175,6 +175,36 @@ object BudgetNotificationHelper {
         getPrefs(context).edit().putString(KEY_EXCEEDED_NOTIFIED_DATE, today).apply()
     }
     
+    /**
+     * General purpose notification helper
+     */
+    fun showNotification(context: Context, id: Int, title: String, message: String) {
+        val channelId = if (title.contains("Exceeded", true)) CHANNEL_ID_ALERTS else CHANNEL_ID_REMINDERS
+        
+        val intent = Intent(context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        val pendingIntent = PendingIntent.getActivity(
+            context, 
+            id, 
+            intent, 
+            PendingIntent.FLAG_IMMUTABLE
+        )
+        
+        val notification = NotificationCompat.Builder(context, channelId)
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setContentTitle(title)
+            .setContentText(message)
+            .setPriority(if (channelId == CHANNEL_ID_ALERTS) NotificationCompat.PRIORITY_HIGH else NotificationCompat.PRIORITY_DEFAULT)
+            .setAutoCancel(true)
+            .setContentIntent(pendingIntent)
+            .build()
+        
+        if (hasNotificationPermission(context)) {
+            NotificationManagerCompat.from(context).notify(id, notification)
+        }
+    }
+
     /**
      * Reset notification flags (called on new day)
      */

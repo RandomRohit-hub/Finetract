@@ -1,82 +1,134 @@
 [
     {
-        "merged": "com.finetract.app-debug-59:/layout_fragment_insights.xml.flat",
-        "source": "com.finetract.app-main-61:/layout/fragment_insights.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\xml_file_paths.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\xml\\file_paths.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/layout_item_calendar_day.xml.flat",
-        "source": "com.finetract.app-main-61:/layout/item_calendar_day.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\drawable_ic_eye_on.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\drawable\\ic_eye_on.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/layout_dialog_report_card.xml.flat",
-        "source": "com.finetract.app-main-61:/layout/dialog_report_card.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_bottom_sheet_day_detail.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\bottom_sheet_day_detail.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/layout_fragment_home.xml.flat",
-        "source": "com.finetract.app-main-61:/layout/fragment_home.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\drawable_shape_circle_green.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\drawable\\shape_circle_green.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/menu_bottom_nav_menu.xml.flat",
-        "source": "com.finetract.app-main-61:/menu/bottom_nav_menu.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/drawable_shape_circle_green.xml.flat",
-        "source": "com.finetract.app-main-61:/drawable/shape_circle_green.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_fragment_history_calendar.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\fragment_history_calendar.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/drawable_bg_pill_accent.xml.flat",
-        "source": "com.finetract.app-main-61:/drawable/bg_pill_accent.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_dialog_report_card.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\dialog_report_card.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/drawable_shape_circle_red.xml.flat",
-        "source": "com.finetract.app-main-61:/drawable/shape_circle_red.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\drawable_ic_today.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\drawable\\ic_today.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/xml_file_paths.xml.flat",
-        "source": "com.finetract.app-main-61:/xml/file_paths.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_bottom_sheet_add_transaction.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\bottom_sheet_add_transaction.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/xml_backup_rules.xml.flat",
-        "source": "com.finetract.app-main-61:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/layout_item_transaction.xml.flat",
-        "source": "com.finetract.app-main-61:/layout/item_transaction.xml"
+        "merged": "com.finetract.app-debug-65:/layout_item_transaction.xml.flat",
+        "source": "com.finetract.app-main-67:/layout/item_transaction.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/layout_fragment_settings.xml.flat",
-        "source": "com.finetract.app-main-61:/layout/fragment_settings.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\drawable_bg_pill_accent.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\drawable\\bg_pill_accent.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/layout_fragment_transactions.xml.flat",
-        "source": "com.finetract.app-main-61:/layout/fragment_transactions.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_fragment_passbook.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\fragment_passbook.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/layout_item_passbook_record.xml.flat",
-        "source": "com.finetract.app-main-61:/layout/item_passbook_record.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\menu\\bottom_nav_menu.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/layout_fragment_passbook.xml.flat",
-        "source": "com.finetract.app-main-61:/layout/fragment_passbook.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_fragment_transactions.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\fragment_transactions.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/xml_data_extraction_rules.xml.flat",
-        "source": "com.finetract.app-main-61:/xml/data_extraction_rules.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\drawable_shape_circle_highlight.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\drawable\\shape_circle_highlight.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/drawable_shape_circle_yellow.xml.flat",
-        "source": "com.finetract.app-main-61:/drawable/shape_circle_yellow.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_fragment_today.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\fragment_today.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/layout_dialog_day_detail.xml.flat",
-        "source": "com.finetract.app-main-61:/layout/dialog_day_detail.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_dialog_day_detail.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\dialog_day_detail.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/drawable_shape_circle_highlight.xml.flat",
-        "source": "com.finetract.app-main-61:/drawable/shape_circle_highlight.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\drawable_shape_circle_red.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\drawable\\shape_circle_red.xml"
     },
     {
-        "merged": "com.finetract.app-debug-59:/layout_activity_main.xml.flat",
-        "source": "com.finetract.app-main-61:/layout/activity_main.xml"
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\drawable_ic_eye_off.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\drawable\\ic_eye_off.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\drawable_shape_circle_yellow.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\drawable\\shape_circle_yellow.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_fragment_insights.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\fragment_insights.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_item_calendar_day.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\item_calendar_day.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_fragment_settings.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\fragment_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\drawable_ic_settings.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\drawable\\ic_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_fragment_history.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\fragment_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\drawable_shape_bottom_sheet_bg.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\drawable\\shape_bottom_sheet_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_item_transaction_today.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\item_transaction_today.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_item_transaction.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\item_transaction.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\drawable_ic_history.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\drawable\\ic_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-debug-65:\\layout_item_passbook_record.xml.flat",
+        "source": "C:\\Users\\Rohit\\.gradle\\daemon\\9.2.1\\com.finetract.app-main-67:\\layout\\item_passbook_record.xml"
     }
 ]
